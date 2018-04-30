@@ -30,8 +30,10 @@ const UIController = (function () {
 		cards.forEach(c => c.addEventListener('click', changeCardStatus))
 	}
 
-	const changeCardStatus = () => {
-		console.log('status change')
+	const changeCardStatus = function () {
+		this.classList.toggle('card-back')
+		this.classList.toggle('card-front')
+		this.classList.toggle('card-disabled')
 	}
 
 	return {

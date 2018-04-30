@@ -33,3 +33,7 @@
 	display: inline-block;
 	padding: 3rem;
 }
+
+.card-disabled {
+	pointer-events: none;
+}
