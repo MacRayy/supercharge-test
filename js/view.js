@@ -6,6 +6,8 @@ const UIController = (function () {
 		gameBoard: 'game-board'
 	}
 
+	let cardsInGame = []
+
 	const setupGameBoard = () => {
 		const selector = document.querySelector(DOMStrings.selectCardNum)
 		const deckSize = selector.options[selector.selectedIndex].value
@@ -25,9 +27,9 @@ const UIController = (function () {
 			cards.push(card)
 		}
 
-		shuffle(cards)
+		cardsInGame = shuffle(cards)
 
-		cards.forEach(c => {
+		cardsInGame.forEach(c => {
 			gameBoard.appendChild(c)
 		})
 
@@ -65,6 +67,7 @@ const UIController = (function () {
 
 	return {
 		DOMStrings,
+		cardsInGame,
 		setupGameBoard
 	}
 })()
