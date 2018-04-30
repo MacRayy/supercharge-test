@@ -10,7 +10,7 @@ const AppController = function (gameCtrl, UICtrl) {
 	const setupEventListeners = () => {
 		const DOM = UICtrl.DOMStrings
 
-		document.addEventListener('DOMContentLoaded', () => document.querySelector(DOM.selectCardNum).onchange = UICtrl.getDeckSize, false)
+		document.addEventListener('DOMContentLoaded', () => document.querySelector(DOM.selectCardNum).onchange = UICtrl.setupGameBoard, false)
 	}
 
 	return {

@@ -3,17 +3,30 @@
 const UIController = (function () {
 	const DOMStrings = {
 		selectCardNum: '.deck-size-selector',
+		gameBoard: 'game-board'
 	}
 
-	const getDeckSize = () => {
+	const setupGameBoard = () => {
 		const selector = document.querySelector(DOMStrings.selectCardNum)
 		const deckSize = selector.options[selector.selectedIndex].value
-		console.log(deckSize)
+		renderCards(deckSize)
 	}
+
+	const renderCards = (size) => {
+		const gameBoard = document.getElementById(DOMStrings.gameBoard)
+		clearGameBoard(gameBoard)
+		for (let i = 0; i < size; i++) {
+			const card = document.createElement('div')
+			card.className = 'card card-back'
+			gameBoard.appendChild(card)
+		}
+	}
+
+	const clearGameBoard = gameBoard => gameBoard.innerHTML = ''
 
 	return {
 		DOMStrings,
-		getDeckSize
+		setupGameBoard
 	}
 })()
 
