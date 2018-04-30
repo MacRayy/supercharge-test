@@ -20,9 +20,19 @@ const UIController = (function () {
 			card.className = 'card card-back'
 			gameBoard.appendChild(card)
 		}
+		addEventListenersToCards()
 	}
 
 	const clearGameBoard = gameBoard => gameBoard.innerHTML = ''
+
+	const addEventListenersToCards = () => {
+		const cards = Array.from(document.getElementsByClassName('card'))
+		cards.forEach(c => c.addEventListener('click', changeCardStatus))
+	}
+
+	const changeCardStatus = () => {
+		console.log('status change')
+	}
 
 	return {
 		DOMStrings,
